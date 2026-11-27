@@ -23,6 +23,8 @@ public class OrderController {
         config.routes.post("/create-order", ctx -> createOrder(ctx));
     }
 
+    //Grabs user inputs in the form, then calls createOrder with the specified data.
+
     private void createOrder(Context ctx) {
         int height = Integer.parseInt(ctx.formParam("height"));
         int width = Integer.parseInt(ctx.formParam("width"));
@@ -33,11 +35,11 @@ public class OrderController {
         String email = ctx.formParam("email");
         String phonenumber = ctx.formParam("phonenumber");
 
+        //Reloading the page with an error message attribute in our ctx if the DB operation fails, otherwise redirecting to order-success.html.
         try {
             orderService.createOrder(height, width, depth, name, address, zipCode, email, phonenumber);
             ctx.redirect("/order-success");
-        }
-        catch (DatabaseException e){
+        } catch (DatabaseException e) {
             ctx.attribute("error", e.getMessage());
             ctx.render("/order-form");
         }
