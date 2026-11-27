@@ -17,36 +17,61 @@ class CarportServiceTest {
 	}
 
 	@Test
-	public void calcPostsInRowWidth300() {
+	public void calcPostsWidth300() {
 		carport.setWidth(300);
 
-		int expectedRows = 2;
-		assertEquals(expectedRows, carportService.calcPostsInRow(carport));
+		int expectedPosts = 2;
+		assertEquals(expectedPosts, carportService.calcPostsWidth(carport));
 	}
 
 	@Test
-	public void calcPostsInRowWidth500() {
+	public void calcPostsWidth500() {
 		carport.setWidth(500);
 
-		int expectedRows = 2;
-		assertEquals(expectedRows, carportService.calcPostsInRow(carport));
+		int expectedPosts = 2;
+		assertEquals(expectedPosts, carportService.calcPostsWidth(carport));
 	}
 
 	@Test
-	public void calcPostsInRowWidth600() {
+	public void calcPostsWidth600() {
 		carport.setWidth(600);
 
-		int expectedRows = 3;
-		assertEquals(expectedRows, carportService.calcPostsInRow(carport));
+		int expectedPosts = 3;
+		assertEquals(expectedPosts, carportService.calcPostsWidth(carport));
 	}
 
 	@Test
-	public void calcPostsInRowWidth2100() {
+	public void calcPostsWidth2100() {
 		carport.setWidth(2100);
 
-		int expectedRows = 6;
-		assertEquals(expectedRows, carportService.calcPostsInRow(carport));
+		int expectedPosts = 6;
+		assertEquals(expectedPosts, carportService.calcPostsWidth(carport));
 	}
+
+	@Test
+	public void calcPostsDepth400() {
+		carport.setDepth(400);
+
+		int expectedPosts = 2;
+		assertEquals(expectedPosts, carportService.calcPostsDepth(carport));
+	}
+
+	@Test
+	public void calcPostsDepth600() {
+		carport.setDepth(600);
+
+		int expectedPosts = 3;
+		assertEquals(expectedPosts, carportService.calcPostsDepth(carport));
+	}
+
+	@Test
+	public void calcPostsDepth1500() {
+		carport.setDepth(1500);
+
+		int expectedPosts = 5;
+		assertEquals(expectedPosts, carportService.calcPostsDepth(carport));
+	}
+
 
 	@Test
 	public void calcPostQuantityWidth300Depth400() {
@@ -62,7 +87,7 @@ class CarportServiceTest {
 		carport.setWidth(300);
 		carport.setDepth(600);
 
-		int expectedPosts = 4;
+		int expectedPosts = 6;
 		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
 	}
 
