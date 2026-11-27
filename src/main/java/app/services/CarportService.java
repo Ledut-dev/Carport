@@ -22,10 +22,10 @@ public class CarportService {
     public void addPartsToPartsList(Carport carport) throws DatabaseException {
         //Numbers are placeholders for the type_variant_id used for the specific part
         Material postMaterial = getOptimalMaterial(calcPostLength(carport), 101);
-        Material depthSternMaterial = getOptimalMaterial(calcPostLength(carport), 102);
-        Material widthSternMaterial = getOptimalMaterial(calcPostLength(carport), 102);
-        Material rafterMaterial = getOptimalMaterial(calcPostLength(carport), 201);
-        Material purlinMaterial = getOptimalMaterial(calcPostLength(carport), 201);
+        Material depthSternMaterial = getOptimalMaterial(calcDepthSternLength(carport), 102);
+        Material widthSternMaterial = getOptimalMaterial(calcWidthSternLength(carport), 102);
+        Material rafterMaterial = getOptimalMaterial(calcRafterLength(carport), 201);
+        Material purlinMaterial = getOptimalMaterial(calcPurlinLength(carport), 201);
 
         // remove .getPartLines()
         carport.getPartsList().add(new PartLine(postMaterial, calcPostLength(carport), calcPostQuantity(carport)));
