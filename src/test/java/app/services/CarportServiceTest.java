@@ -49,16 +49,16 @@ class CarportServiceTest {
 	}
 
 	@Test
-	public void calcPostsDepth400() {
-		carport.setDepth(400);
+	public void calcPostsDepth300() {
+		carport.setDepth(300);
 
 		int expectedPosts = 2;
 		assertEquals(expectedPosts, carportService.calcPostsDepth(carport));
 	}
 
 	@Test
-	public void calcPostsDepth600() {
-		carport.setDepth(600);
+	public void calcPostsDepth620() {
+		carport.setDepth(620);
 
 		int expectedPosts = 3;
 		assertEquals(expectedPosts, carportService.calcPostsDepth(carport));
@@ -68,7 +68,7 @@ class CarportServiceTest {
 	public void calcPostsDepth1500() {
 		carport.setDepth(1500);
 
-		int expectedPosts = 5;
+		int expectedPosts = 6;
 		assertEquals(expectedPosts, carportService.calcPostsDepth(carport));
 	}
 
@@ -78,7 +78,7 @@ class CarportServiceTest {
 		carport.setWidth(300);
 		carport.setDepth(400);
 
-		int expectedPosts = 4;
+		int expectedPosts = 6;
 		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
 	}
 
@@ -96,7 +96,7 @@ class CarportServiceTest {
 		carport.setWidth(300);
 		carport.setDepth(1500);
 
-		int expectedPosts = 10;
+		int expectedPosts = 12;
 		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
 	}
 

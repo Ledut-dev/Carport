@@ -7,7 +7,7 @@ public class Carport {
 	private PartsList partsList;
 	// Illustration in future
 	private final int maxPostDistanceWidth = 500;
-	private final int maxPostDistanceDepth = 400;
+	private final int maxPostDistanceDepth = 310;
 
 	// === Material Specifications ===
 	private int postQuantity;
