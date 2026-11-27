@@ -1,0 +1,84 @@
+.form-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-option {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 10px;
+    align-items: flex-start;
+}
+
+.form-option label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.form-option input {
+    width: 280px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.input-with-unit input {
+    width: 220px;
+}
+
+/* display:none by default so that the error is hidden */
+.range-error {
+    display: none;
+    color: #d32f2f;
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+/* Show error message when input is invalid. In this case meaning either "out of range" of min/max OR containing decimals */
+.form-option:has(input:invalid:not(:placeholder-shown)) .range-error {
+    display: block;
+}
+
+/* Changing the border color of the input box when an error is being shown to highlight which inputs have errors */
+.form-option:has(input:invalid:not(:placeholder-shown)) input {
+    border-color: #d32f2f;
+}
+
+/* display:none by default so that the error is hidden */
+.pattern-error {
+    display: none;
+    color: #d32f2f;
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+/* Showing error message for pattern-error as long as the input doesn't match the pattern AND the input box is not empty/contains our placeholder text*/
+.form-option:has(input:invalid:not(:placeholder-shown)) .pattern-error {
+    display: block;
+}
+
+/* Adds a "*" after each input field that's tagged "required", to show which fields are required.
+At the moment, EVERY field is required, so potentially not relevant*/
+.form-option:has(input[required]) label::after {
+    content: " *";
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+#form-button {
+    margin: 20px 10px;
+}
+
+#form-button button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
