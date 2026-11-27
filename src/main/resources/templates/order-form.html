@@ -35,7 +35,7 @@
                 <label for="phoneNumber">Telefonnummer</label>
                 <!--pattern here means only digits from 0-9, with a minimum of 8 and maximum of 15 digits.
                 Currently, we're not allowing + and country codes, although the validation on that itself is not too difficult.
-                Rather potentially need to talk over how we handle it on the backend-->
+                Rather potentially need to talk over how we handle it on the backend (if we handle it at all or just store it as a string :))-->
                 <input type="tel"
                        pattern="[0-9]{8,15}"
                        id="phoneNumber"
