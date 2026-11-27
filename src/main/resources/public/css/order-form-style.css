@@ -1,0 +1,68 @@
+.form-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-option {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 10px;
+    align-items: flex-start;
+}
+
+.form-option label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.form-option input {
+    width: 280px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.input-with-unit input {
+    width: 220px;
+}
+
+/* display:none by default so that the error is hidden */
+.range-error {
+    display: none;
+    color: #d32f2f;
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+/* Show error message when input is out of range of min/max */
+.form-option:has(input:out-of-range) .range-error {
+    display: block;
+}
+
+/* Changing the border color of the input box when an error is being shown to highlight which inputs have errors */
+.form-option:has(input:out-of-range) input {
+    border-color: #d32f2f;
+}
+
+/* */
+.form-option:has(input:invalid:not(:placeholder-shown)) .pattern-error {
+    display: block;
+}
+
+#form-button {
+    margin: 20px 10px;
+}
+
+#form-button button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
