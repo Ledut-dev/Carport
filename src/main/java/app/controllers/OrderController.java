@@ -18,6 +18,8 @@ public class OrderController {
     public void setRoutes(JavalinConfig config) {
         config.routes.get("/", ctx -> renderOrderForm(ctx));
         config.routes.get("/order-form", ctx -> renderOrderForm(ctx));
+        config.routes.get("/order-success", ctx -> renderOrderSuccess(ctx));
+
         config.routes.post("/create-order", ctx -> createOrder(ctx));
     }
 
@@ -33,6 +35,7 @@ public class OrderController {
 
         try {
             orderService.createOrder(height, width, depth, name, address, zipCode, email, phonenumber);
+            ctx.redirect("/order-success");
         }
         catch (DatabaseException e){
             ctx.attribute("error", e.getMessage());
@@ -42,6 +45,10 @@ public class OrderController {
 
     private void renderOrderForm(Context ctx) {
         ctx.render("/order-form");
+    }
+
+    private void renderOrderSuccess(Context ctx) {
+        ctx.render("/order-success");
     }
 
 }
