@@ -26,16 +26,16 @@ public class Carport {
 		this.width = width;
 		this.depth = depth;
 		this.height = height;
-
+		
 		partsList = new PartsList();
 	}
 
 	public Carport() {
 		partsList = new PartsList();
 	}
-
+	
 	// === Methods ===
-
+	
 	// === Getters/Setters ===
 
 	public int getWidth() {
@@ -68,6 +68,14 @@ public class Carport {
 
 	public void setPartsList(PartsList partsList) {
 		this.partsList = partsList;
+	}
+
+	public int getMaxPostDistanceWidth() {
+		return maxPostDistanceWidth;
+	}
+
+	public int getMaxPostDistanceDepth() {
+		return maxPostDistanceDepth;
 	}
 
 	public int getPostQuantity() {
