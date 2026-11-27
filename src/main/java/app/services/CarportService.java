@@ -35,4 +35,11 @@ public class CarportService {
 	public int calcPostQuantity(Carport carport) {
 		return calcPostsWidth(carport) * calcPostsDepth(carport);
 	}
+
+	public int calcPostLength(Carport carport) {
+		// rafter's width is currently always 200mm.
+		// If this changes, find rafter material's height and width and use the longer measurement
+		int rafterWidth = 20;
+		return carport.getHeight() + 90 - rafterWidth;
+	}
 }

@@ -100,6 +100,30 @@ class CarportServiceTest {
 		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
 	}
 
+	@Test
+	public void calcPostLengthHeight210() {
+		carport.setHeight(210);
+
+		int expectedLength = 280;
+		assertEquals(expectedLength, carportService.calcPostLength(carport));
+	}
+
+	@Test
+	public void calcPostLengthHeight0() {
+		carport.setHeight(0);
+
+		int expectedLength = 70;
+		assertEquals(expectedLength, carportService.calcPostLength(carport));
+	}
+
+	@Test
+	public void calcPostLengthHeight1() {
+		carport.setHeight(1);
+
+		int expectedLength = 71;
+		assertEquals(expectedLength, carportService.calcPostLength(carport));
+	}
+
 
 	@AfterEach
 	public void tearDown() {
