@@ -3,7 +3,7 @@ const buttons = box.querySelectorAll('.tab-btn');
 const contents = box.querySelectorAll('.tab-content');
 
     buttons.forEach((btn) => {
-    /*WHAT: when page is loaded add event litstener to all buttons
+    /*WHAT: when page is loaded add event listener to all buttons
       WHY: to change state and content*/
     btn.addEventListener('click', () => {
         const targetId = btn.dataset.tab;
