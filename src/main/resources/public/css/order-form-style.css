@@ -42,13 +42,13 @@
     margin-top: 4px;
 }
 
-/* Show error message when input is out of range of min/max */
-.form-option:has(input:out-of-range) .range-error {
+/* Show error message when input is invalid. In this case meaning either "out of range" of min/max OR containing decimals */
+.form-option:has(input:invalid:not(:placeholder-shown)) .range-error {
     display: block;
 }
 
 /* Changing the border color of the input box when an error is being shown to highlight which inputs have errors */
-.form-option:has(input:out-of-range) input {
+.form-option:has(input:invalid:not(:placeholder-shown)) input {
     border-color: #d32f2f;
 }
 
