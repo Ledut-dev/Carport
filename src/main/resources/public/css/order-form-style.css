@@ -65,6 +65,14 @@
     display: block;
 }
 
+/* Adds a "*" after each input field that's tagged "required", to show which fields are required.
+At the moment, EVERY field is required, so potentially not relevant*/
+.form-option:has(input[required]) label::after {
+    content: " *";
+    color: #d32f2f;
+    font-weight: bold;
+}
+
 #form-button {
     margin: 20px 10px;
 }
