@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CarportServiceTest {
-	private CarportService carportService;
+	private final CarportService carportService = new CarportService();
 	private Carport carport;
 
 	@BeforeEach
@@ -47,6 +47,34 @@ class CarportServiceTest {
 		int expectedRows = 6;
 		assertEquals(expectedRows, carportService.calcPostsInRow(carport));
 	}
+
+	@Test
+	public void calcPostQuantityWidth300Depth400() {
+		carport.setWidth(300);
+		carport.setDepth(400);
+
+		int expectedPosts = 4;
+		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
+	}
+
+	@Test
+	public void calcPostQuantityWidth300Depth600() {
+		carport.setWidth(300);
+		carport.setDepth(600);
+
+		int expectedPosts = 4;
+		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
+	}
+
+	@Test
+	public void calcPostQuantityWidth300Depth1500() {
+		carport.setWidth(300);
+		carport.setDepth(1500);
+
+		int expectedPosts = 10;
+		assertEquals(expectedPosts, carportService.calcPostQuantity(carport));
+	}
+
 
 	@AfterEach
 	public void tearDown() {
