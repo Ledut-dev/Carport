@@ -3,20 +3,24 @@ package app.services;
 import app.entities.Carport;
 import app.entities.Material;
 import app.entities.PartLine;
+import app.exceptions.DatabaseException;
 import app.persistence.CarportMapper;
+import app.persistence.ConnectionPool;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CarportService {
+    private ConnectionPool connectionPool;
     private CarportMapper carportMapper;
 
-    public CarportService() {
-        this.carportMapper = new CarportMapper();
+    public CarportService(ConnectionPool connectionPool) {
+        this.connectionPool = connectionPool;
+        this.carportMapper = new CarportMapper(connectionPool);
     }
 
-    public void addPartsToPartsList(Carport carport) {
-        //numbers are placeholders for the type_variant_id used for the specific part
+    public void addPartsToPartsList(Carport carport) throws DatabaseException {
+        //Numbers are placeholders for the type_variant_id used for the specific part
         Material postMaterial = getOptimalMaterial(calcPostLength(carport), 101);
         Material depthSternMaterial = getOptimalMaterial(calcPostLength(carport), 102);
         Material widthSternMaterial = getOptimalMaterial(calcPostLength(carport), 102);
@@ -24,14 +28,14 @@ public class CarportService {
         Material purlinMaterial = getOptimalMaterial(calcPostLength(carport), 201);
 
         // remove .getPartLines()
-        carport.getPartsList().getPartLines().add(new PartLine(postMaterial, calcPostLength(carport), calcPostQuantity(carport)));
-        carport.getPartsList().getPartLines().add(new PartLine(depthSternMaterial, calcDepthSternLength(carport), 2));
-        carport.getPartsList().getPartLines().add(new PartLine(widthSternMaterial, calcWidthSternLength(carport), 2));
-        carport.getPartsList().getPartLines().add(new PartLine(rafterMaterial, calcRafterLength(carport), calcRafterQuantity(carport)));
-        carport.getPartsList().getPartLines().add(new PartLine(purlinMaterial, calcPurlinLength(carport), calcPurlinQuantity(carport)));
+        carport.getPartsList().add(new PartLine(postMaterial, calcPostLength(carport), calcPostQuantity(carport)));
+        carport.getPartsList().add(new PartLine(depthSternMaterial, calcDepthSternLength(carport), 2));
+        carport.getPartsList().add(new PartLine(widthSternMaterial, calcWidthSternLength(carport), 2));
+        carport.getPartsList().add(new PartLine(rafterMaterial, calcRafterLength(carport), calcRafterQuantity(carport)));
+        carport.getPartsList().add(new PartLine(purlinMaterial, calcPurlinLength(carport), calcPurlinQuantity(carport)));
     }
 
-    private Material getOptimalMaterial(int fittedLength, int typeVariantID) {
+    private Material getOptimalMaterial(int fittedLength, int typeVariantID) throws DatabaseException {
         List<Material> materials = carportMapper.getMaterialsByTypeVariantID(typeVariantID);
         int quantity = 1; // Trying to find a single piece of materials first
 
