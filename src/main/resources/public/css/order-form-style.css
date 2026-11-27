@@ -52,7 +52,15 @@
     border-color: #d32f2f;
 }
 
-/* */
+/* display:none by default so that the error is hidden */
+.pattern-error {
+    display: none;
+    color: #d32f2f;
+    font-size: 0.82rem;
+    margin-top: 4px;
+}
+
+/* Showing error message for pattern-error as long as the input doesn't match the pattern AND the input box is not empty/contains our placeholder text*/
 .form-option:has(input:invalid:not(:placeholder-shown)) .pattern-error {
     display: block;
 }

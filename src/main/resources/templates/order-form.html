@@ -36,14 +36,14 @@
                 <!--pattern here means only digits from 0-9, with a minimum of 8 and maximum of 15 digits.
                 Currently, we're not allowing + and country codes, although the validation on that itself is not too difficult.
                 Rather potentially need to talk over how we handle it on the backend-->
-                <input type="number"
+                <input type="tel"
                        pattern="[0-9]{8,15}"
                        id="phoneNumber"
                        name="phonenumber"
                        placeholder="Telefonnummer"
                        title="Telefonnummer skal være 8-15 cifre"
                        required>
-                <span class="pattern-error">Skal være mellem 300 og 900 cm</span>
+                <span class="pattern-error">Skal være 8-15 cifre</span>
             </div>
 
             <div class="form-option">
