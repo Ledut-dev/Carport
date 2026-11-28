@@ -68,38 +68,4 @@ public class CarportService {
         }
         return longEnoughMaterials;
     }
-
-
-    // DUMMY METHODS FOR TESTING
-    private int calcPostQuantity(Carport carport) {
-        return 6; // DELETE THIS
-    }
-
-    private int calcPostLength(Carport carport) {
-        return 190; // DELETE THIS
-    }
-
-    private int calcDepthSternLength(Carport carport) {
-        return 480; // DELETE THIS
-    }
-
-    private int calcWidthSternLength(Carport carport) {
-        return 360; // DELETE THIS
-    }
-
-    private int calcRafterQuantity(Carport carport) {
-        return 10; // DELETE THIS
-    }
-
-    private int calcRafterLength(Carport carport) {
-        return 360; // DELETE THIS
-    }
-
-    private int calcPurlinQuantity(Carport carport) {
-        return 2; // DELETE THIS
-    }
-
-    private int calcPurlinLength(Carport carport) {
-        return 480; // DELETE THIS
-    }
 }
